@@ -3,10 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (params) => {
+  const { feedbackService } = params;
 
-  const {feedbackService} = params;
-
-  router.get('/speaker',async (request, response) => {
+  router.get('/', async (request, response) => {
     const feedback = await feedbackService.getList();
     return response.json(feedback);
   });

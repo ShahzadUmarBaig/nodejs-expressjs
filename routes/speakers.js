@@ -3,11 +3,11 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (params) => {
-  const { speakersService } = params.speakersService;
+  const { speakersService } = params;
 
-  router.get('/speaker', async (request, response) => {
+  router.get('/', async (request, response) => {
     const speakers = await speakersService.getList();
-    console.log(speakers);
+
     return response.json(speakers);
   });
 
